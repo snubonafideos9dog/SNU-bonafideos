@@ -1,0 +1,47 @@
+/* ── 스트레칭 전용 섹션 (별도 칸) ── */
+.stretch-section{
+  max-width:980px;
+  margin:26px auto 0;
+  padding:22px 18px 18px;
+  background:rgba(255,255,255,0.10);
+  backdrop-filter:blur(10px);
+  border-radius:25px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.2);
+}
+
+.stretch-head{
+  text-align:center;
+  margin-bottom:16px;
+  color:#fff;
+}
+.stretch-head h2{
+  font-size:1.5em;font-weight:800;letter-spacing:1px;
+  text-shadow:2px 2px 4px rgba(0,0,0,0.25);
+  margin-bottom:6px;
+}
+.stretch-head p{
+  font-size:0.95em;opacity:0.9;font-weight:300;
+}
+
+/* 섹션 안의 버튼 그리드는 메인과 동일한 .nav-buttons 스타일 재사용 */
+.stretch-section .nav-buttons{margin:0;}
+
+/* ── 독립 스트레칭 페이지(stretch.html) 상단 바 ── */
+.page-topbar{
+  max-width:980px;margin:0 auto 6px;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:2px;
+}
+.page-topbar .lang-switch{margin-top:0;}
+.close-page-btn{
+  border:1px solid rgba(255,255,255,0.40);
+  background:rgba(255,255,255,0.14);
+  color:#fff;border-radius:999px;
+  padding:9px 16px;cursor:pointer;font-weight:800;font-size:0.95em;
+  transition:all .2s ease;white-space:nowrap;
+}
+.close-page-btn:hover{background:rgba(255,255,255,0.26);}
+
+@media(max-width:768px){
+  .stretch-head h2{font-size:1.25em;}
+}

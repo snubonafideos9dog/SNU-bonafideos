@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>스트레칭 가이드 | 반듯한정형외과</title>
+
+  <!-- 메인과 동일한 CSS 모듈 사용 -->
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+  <div class="container">
+    <!-- 상단 바: 언어 전환 + 닫기 -->
+    <div class="page-topbar">
+      <div class="lang-switch" aria-label="Language switch">
+        <button type="button" class="lang-btn active" data-lang="ko" onclick="setLanguage('ko')">한국어</button>
+        <button type="button" class="lang-btn" data-lang="en" onclick="setLanguage('en')">English</button>
+      </div>
+      <button type="button" class="close-page-btn" onclick="closeStretchPage()" data-ko="✕ 닫기" data-en="✕ Close" data-i18n="true">✕ 닫기</button>
+    </div>
+
+    <!-- 스트레칭 가이드 (메인과 동일한 컴포넌트 재사용) -->
+    <div data-component="stretch"></div>
+  </div>
+
+  <!-- JS 모듈 (메인과 동일) -->
+  <script src="js/i18n.js"></script>
+  <script src="js/viewer.js"></script>
+  <script>
+    /* 닫기: 새 탭으로 열렸으면 창을 닫고, 직접(QR) 들어온 경우엔 환자안내문 전체로 이동 */
+    function closeStretchPage(){
+      window.close();
+      setTimeout(function(){
+        if(!window.closed){ window.location.href = 'index.html'; }
+      }, 150);
+    }
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

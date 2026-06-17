@@ -1,0 +1,15 @@
+{
+  "name": "snu-bonafideos",
+  "version": "1.0.0",
+  "private": true,
+  "description": "반듯한정형외과 환자 안내 페이지 (정적 사이트)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.0.0"
+  }
+}
