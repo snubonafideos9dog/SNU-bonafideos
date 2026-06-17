@@ -6,36 +6,36 @@
 
 const translationMap = {
   ko: {
-    '🦴 손상단계별 치료안내 ▾': '🦴 손상단계별 치료안내 ▾',
-    '🦶 족저근막염 치료 안내': '🦶 족저근막염 치료 안내',
-    '🩹 보조기 착용 안내 ▾': '🩹 보조기 착용 안내 ▾',
-    '⭐ 특수 치료 안내 ▾': '⭐ 특수 치료 안내 ▾',
-    '🩺 소독 및 실밥 제거 후 안내': '🩺 소독 및 실밥 제거 후 안내',
-    '💰 비급여 항목 안내': '💰 비급여 항목 안내',
-    '📄 서류 비용 안내': '📄 서류 비용 안내',
-    '📱 안내문을 나중에도 확인하고 싶어요': '📱 안내문을 나중에도 확인하고 싶어요',
+    '손상단계별 치료안내 ▾': '손상단계별 치료안내 ▾',
+    '족저근막염 치료 안내': '족저근막염 치료 안내',
+    '보조기 착용 안내 ▾': '보조기 착용 안내 ▾',
+    '특수 치료 안내 ▾': '특수 치료 안내 ▾',
+    '소독 및 실밥 제거 후 안내': '소독 및 실밥 제거 후 안내',
+    '비급여 항목 안내': '비급여 항목 안내',
+    '서류 비용 안내': '서류 비용 안내',
+    '안내문을 나중에도 확인하고 싶어요': '안내문을 나중에도 확인하고 싶어요',
     '목': '목', '어깨': '어깨', '팔꿈치': '팔꿈치', '손목': '손목', '손가락': '손가락', '허리': '허리', '고관절': '고관절', '무릎': '무릎', '발목': '발목', '발가락': '발가락',
-    '🩹 쿨밴드·코반 착용 후 붓기 관리': '🩹 쿨밴드·코반 착용 후 붓기 관리',
+    '쿨밴드·코반 착용 후 붓기 관리': '쿨밴드·코반 착용 후 붓기 관리',
     '등,허리 보호대 착용법': '등,허리 보호대 착용법', '쇄골 붕대 착용법': '쇄골 붕대 착용법', '어깨 보조기(울트라슬링) 착용법': '어깨 보조기(울트라슬링) 착용법',
     '어깨 보조기(벨포밴드) 착용법': '어깨 보조기(벨포밴드) 착용법', '어깨 보조기(벨포밴드) 푸는 법': '어깨 보조기(벨포밴드) 푸는 법',
     '복대 착용법': '복대 착용법', '손가락 붕대 착용법': '손가락 붕대 착용법', '발목 붕대 착용법': '발목 붕대 착용법', '발가락 붕대 및 코반 감는 법': '발가락 붕대 및 코반 감는 법',
-    '한 쪽 목발 사용법': '한 쪽 목발 사용법', '양 쪽 목발 사용법': '양 쪽 목발 사용법', '🧊 신장분사치료': '🧊 신장분사치료', '💡 고출력레이저치료': '💡 고출력레이저치료', '🔊 충격파치료': '🔊 충격파치료'
+    '한 쪽 목발 사용법': '한 쪽 목발 사용법', '양 쪽 목발 사용법': '양 쪽 목발 사용법', '신장분사치료': '신장분사치료', '고출력레이저치료': '고출력레이저치료', '충격파치료': '충격파치료'
   },
   en: {
-    '🦴 손상단계별 치료안내 ▾': '🦴 Injury-stage treatment guide ▾',
-    '🦶 족저근막염 치료 안내': '🦶 Plantar fasciitis treatment guide',
-    '🩹 보조기 착용 안내 ▾': '🩹 Brace-wearing guide ▾',
-    '⭐ 특수 치료 안내 ▾': '⭐ Special treatment guide ▾',
-    '🩺 소독 및 실밥 제거 후 안내': '🩺 After disinfection and stitch removal guide',
-    '💰 비급여 항목 안내': '💰 Non-covered items guide',
-    '📄 서류 비용 안내': '📄 Document fee guide',
-    '📱 안내문을 나중에도 확인하고 싶어요': '📱 I want to review the guide later',
+    '손상단계별 치료안내 ▾': 'Injury-stage treatment guide ▾',
+    '족저근막염 치료 안내': 'Plantar fasciitis treatment guide',
+    '보조기 착용 안내 ▾': 'Brace-wearing guide ▾',
+    '특수 치료 안내 ▾': 'Special treatment guide ▾',
+    '소독 및 실밥 제거 후 안내': 'After disinfection and stitch removal guide',
+    '비급여 항목 안내': 'Non-covered items guide',
+    '서류 비용 안내': 'Document fee guide',
+    '안내문을 나중에도 확인하고 싶어요': 'I want to review the guide later',
     '목': 'Neck', '어깨': 'Shoulder', '팔꿈치': 'Elbow', '손목': 'Wrist', '손가락': 'Finger', '허리': 'Lower back', '고관절': 'Hip', '무릎': 'Knee', '발목': 'Ankle', '발가락': 'Toe',
-    '🩹 쿨밴드·코반 착용 후 붓기 관리': '🩹 Swelling management after wearing cool band/coban',
+    '쿨밴드·코반 착용 후 붓기 관리': 'Swelling management after wearing cool band/coban',
     '등,허리 보호대 착용법': 'How to wear a back/lumbar brace', '쇄골 붕대 착용법': 'How to wrap a clavicle bandage', '어깨 보조기(울트라슬링) 착용법': 'How to wear an ultra-sling shoulder brace',
     '어깨 보조기(벨포밴드) 착용법': 'How to wear a Velpo band shoulder brace', '어깨 보조기(벨포밴드) 푸는 법': 'How to remove a Velpo band shoulder brace',
     '복대 착용법': 'How to wear a belt support', '손가락 붕대 착용법': 'How to wrap a finger bandage', '발목 붕대 착용법': 'How to wrap an ankle bandage', '발가락 붕대 및 코반 감는 법': 'How to wrap a toe bandage and coban',
-    '한 쪽 목발 사용법': 'How to use one crutch', '양 쪽 목발 사용법': 'How to use two crutches', '🧊 신장분사치료': '🧊 Cryotherapy', '💡 고출력레이저치료': '💡 High-power laser therapy', '🔊 충격파치료': '🔊 Shock wave therapy'
+    '한 쪽 목발 사용법': 'How to use one crutch', '양 쪽 목발 사용법': 'How to use two crutches', '신장분사치료': 'Cryotherapy', '고출력레이저치료': 'High-power laser therapy', '충격파치료': 'Shock wave therapy'
   }
 };
 
@@ -79,17 +79,20 @@ function applyLanguage(lang = getPreferredLanguage()){
     btn.classList.toggle('active', btn.getAttribute('data-lang') === currentLang);
   });
 
-  const headerTitle = document.querySelector('header h1');
-  const headerSubtitle = document.querySelector('header p');
-  if (headerTitle) headerTitle.textContent = lang === 'en' ? 'Bonafide Orthopedic Clinic' : '🏥 반듯한정형외과';
-  if (headerSubtitle) headerSubtitle.textContent = lang === 'en' ? 'Patient Guide' : '환자 안내문';
+  /* 헤더 배너 이미지(데스크톱/모바일): 영어 모드면 en/<배너> 시도, 파일 없으면 한국어 배너로 자동 대체 */
+  document.querySelectorAll('.header-banner').forEach(img => {
+    const koBanner = img.getAttribute('data-img');
+    if (!koBanner) return;
+    img.onerror = function(){ this.onerror = null; this.src = koBanner; };
+    img.src = (currentLang === 'en') ? 'en/' + koBanner : koBanner;
+  });
 
   const footerTitle = document.querySelector('footer p[data-i18n="footer-title"]');
   const footerNote = document.querySelector('footer p[data-i18n="footer-note"]');
   const footerPhone = document.querySelector('footer p[data-i18n="footer-phone"]');
   if (footerTitle) footerTitle.innerHTML = currentLang === 'en' ? '<strong>Bonafide Orthopedic Clinic</strong>' : '<strong>반듯한정형외과 | Bonafide Orthopedic Clinic</strong>';
   if (footerNote) footerNote.textContent = currentLang === 'en' ? 'Please contact staff if you have any questions.' : '궁금하신 사항은 직원에게 언제든지 문의해주세요.';
-  if (footerPhone) footerPhone.textContent = currentLang === 'en' ? '📞 TEL : 02-875-7590' : '📞 TEL : 02-875-7590';
+  if (footerPhone) footerPhone.textContent = currentLang === 'en' ? 'TEL : 02-875-7590' : 'TEL : 02-875-7590';
 
   document.title = currentLang === 'en' ? 'Bonafide Orthopedic Clinic Patient Guide' : '반듯한정형외과 환자 안내';
 }

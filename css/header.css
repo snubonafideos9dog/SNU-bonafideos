@@ -1,10 +1,25 @@
-/* ── 헤더 ── */
+/* ── 헤더 (반응형 배너 이미지) ── */
 header{
-  text-align:center;color:#fff;margin-bottom:24px;padding:38px 20px;
-  backdrop-filter:blur(10px);
-  background:rgba(255,255,255,0.10);
-  border-radius:25px;
+  margin-bottom:24px;
+  border-radius:20px;
+  overflow:hidden;
   box-shadow:0 8px 32px rgba(0,0,0,0.2);
+  line-height:0;            /* 이미지 아래 여백 제거 */
 }
-header h1{font-size:2.3em;margin-bottom:10px;text-shadow:3px 3px 6px rgba(0,0,0,0.3);letter-spacing:2px;}
-header p{font-size:1.1em;opacity:0.95;font-weight:300;}
+
+/* 가로폭에 맞춰 자동 축소(반응형). 원본 비율 유지 */
+.header-banner{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+/* 기본(데스크톱/태블릿): 가로형 배너, 모바일 배너는 숨김 */
+.header-banner-mobile{display:none;}
+
+/* 모바일: 세로로 길쭉한 가로형 대신 모바일 전용 배너로 교체 */
+@media(max-width:768px){
+  header{border-radius:14px;}
+  .header-banner-desktop{display:none;}
+  .header-banner-mobile{display:block;}
+}
