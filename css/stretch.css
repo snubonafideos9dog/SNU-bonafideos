@@ -23,6 +23,21 @@
   font-size:0.95em;opacity:0.9;font-weight:300;
 }
 
+/* 제목 아래 배너 이미지(스트레칭/위생교육 공통) — 가로폭에 맞춰 반응형 */
+.stretch-banner{
+  display:block;
+  width:100%;
+  height:auto;
+  margin:0 auto 18px;
+  border-radius:16px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.18);
+}
+
+/* 버튼 그리드 다음에 오는 배너(위생교육)는 위 간격 추가 */
+.nav-buttons + .stretch-banner{
+  margin-top:30px;
+}
+
 /* 섹션 안의 버튼 그리드는 메인과 동일한 .nav-buttons 스타일 재사용 */
 .stretch-section .nav-buttons{margin:0;}
 

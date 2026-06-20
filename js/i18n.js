@@ -79,8 +79,8 @@ function applyLanguage(lang = getPreferredLanguage()){
     btn.classList.toggle('active', btn.getAttribute('data-lang') === currentLang);
   });
 
-  /* 헤더 배너 이미지(데스크톱/모바일): 영어 모드면 en/<배너> 시도, 파일 없으면 한국어 배너로 자동 대체 */
-  document.querySelectorAll('.header-banner').forEach(img => {
+  /* 섹션 배너(스트레칭/위생교육) + 헤더 배너: 영어 모드면 en/<배너> 시도, 파일 없으면 한국어 배너로 자동 대체 */
+  document.querySelectorAll('.header-banner, .stretch-banner').forEach(img => {
     const koBanner = img.getAttribute('data-img');
     if (!koBanner) return;
     img.onerror = function(){ this.onerror = null; this.src = koBanner; };

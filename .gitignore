@@ -9,6 +9,7 @@ dist/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+vite.log
 
 # OS / 에디터
 .DS_Store
