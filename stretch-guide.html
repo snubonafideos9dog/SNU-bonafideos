@@ -18,13 +18,13 @@
         <button type="button" class="lang-btn" data-lang="en" onclick="setLanguage('en')">English</button>
       </div>
       <div style="display:flex;gap:8px;">
-        <button type="button" class="close-page-btn" onclick="location.href='index.html'" data-ko="← 뒤로" data-en="← Back" data-i18n="true">← 뒤로</button>
-        <button type="button" class="close-page-btn" onclick="closeStretchPage()" data-ko="✕ 닫기" data-en="✕ Close" data-i18n="true">✕ 닫기</button>
+        <button type="button" class="close-page-btn" onclick="location.href='stretch.html'" data-ko="← 뒤로" data-en="← Back" data-i18n="true">← 뒤로</button>
+        <button type="button" class="close-page-btn" onclick="closeStretchGuidePage()" data-ko="✕ 닫기" data-en="✕ Close" data-i18n="true">✕ 닫기</button>
       </div>
     </div>
 
-    <!-- 스트레칭 가이드 (메인과 동일한 컴포넌트 재사용) -->
-    <div data-component="stretch"></div>
+    <!-- 스트레칭 가이드 컴포넌트 -->
+    <div data-component="stretch-guide"></div>
   </div>
 
   <!-- JS 모듈 (메인과 동일) -->
@@ -32,7 +32,7 @@
   <script src="js/viewer.js"></script>
   <script>
     /* 닫기: 새 탭으로 열렸으면 창을 닫고, 직접(QR) 들어온 경우엔 환자안내문 전체로 이동 */
-    function closeStretchPage(){
+    function closeStretchGuidePage(){
       window.close();
       setTimeout(function(){
         if(!window.closed){ window.location.href = 'index.html'; }

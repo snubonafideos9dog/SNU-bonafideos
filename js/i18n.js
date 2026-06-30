@@ -44,9 +44,9 @@ function translateLabel(text, lang){
 }
 
 function getPreferredLanguage(){
-  const saved = localStorage.getItem('guide-lang');
-  if (saved === 'ko' || saved === 'en') return saved;
-  return (navigator.language || navigator.userLanguage || 'ko').toLowerCase();
+  /* 기본값은 항상 한국어. 영어는 페이지에서 ENG 버튼을 눌렀을 때만 적용한다.
+     (브라우저 언어/이전 저장값을 따르지 않음 → 새 창을 열어도 한국어로 시작) */
+  return 'ko';
 }
 
 function applyLanguage(lang = getPreferredLanguage()){
@@ -90,9 +90,9 @@ function applyLanguage(lang = getPreferredLanguage()){
   const footerTitle = document.querySelector('footer p[data-i18n="footer-title"]');
   const footerNote = document.querySelector('footer p[data-i18n="footer-note"]');
   const footerPhone = document.querySelector('footer p[data-i18n="footer-phone"]');
-  if (footerTitle) footerTitle.innerHTML = currentLang === 'en' ? '<strong>Bonafide Orthopedic Clinic</strong>' : '<strong>반듯한정형외과 | Bonafide Orthopedic Clinic</strong>';
+  if (footerTitle) footerTitle.innerHTML = '<a href="https://map.naver.com/p/entry/place/1974407241?placePath=%252Fhome%253Fentry%253Dplt&searchType=place&lng=126.9534376&lat=37.4806869&c=15.00,0,0,0,dh" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;"><strong>' + (currentLang === 'en' ? 'Bonafide Orthopedic Clinic' : '반듯한정형외과 | Bonafide Orthopedic Clinic') + '</strong></a>';
   if (footerNote) footerNote.textContent = currentLang === 'en' ? 'Please contact staff if you have any questions.' : '궁금하신 사항은 직원에게 언제든지 문의해주세요.';
-  if (footerPhone) footerPhone.textContent = currentLang === 'en' ? 'TEL : 02-875-7590' : 'TEL : 02-875-7590';
+  if (footerPhone) footerPhone.innerHTML = 'TEL : <a href="tel:028757590" style="color:inherit;text-decoration:underline;">02-875-7590</a>';
 
   document.title = currentLang === 'en' ? 'Bonafide Orthopedic Clinic Patient Guide' : '반듯한정형외과 환자 안내';
 }

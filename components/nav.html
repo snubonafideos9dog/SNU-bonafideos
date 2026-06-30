@@ -6,151 +6,69 @@
     </button>
   </div>
 
-  <div class="nav-item">
-    <button class="nav-btn" data-title="신경차단술이란?" data-img="뼈주사.png" data-ko="신경차단술이란?" data-en="What is nerve block therapy?" data-i18n="true" onclick="openInlineViewer(this)">
-      신경차단술이란?
+  <div class="nav-item full-width">
+    <button class="nav-btn" data-title="치료기간" data-img="치료지속여부안내.png" data-ko="치료기간" data-en="Treatment period" data-i18n="true" onclick="openInlineViewer(this)">
+      치료기간
     </button>
   </div>
 
   <div class="nav-item">
-    <button class="nav-btn" data-title="신경차단술에 대한 오해와 진실" data-img="신경차단술.png" data-ko="신경차단술에 대한 오해와 진실" data-en="Myths and facts about nerve block therapy" data-i18n="true" onclick="openInlineViewer(this)">
-      신경차단술에 대한 오해와 진실
+    <button class="nav-btn" onclick="window.open('injection.html', '_blank')" data-ko="주사치료 및 시술 안내" data-en="Injection &amp; procedure guide" data-i18n="true">
+      주사치료 및 시술 안내
     </button>
   </div>
 
   <div class="nav-item">
-    <button class="nav-btn" data-title="연골주사 안내문" data-img="연골주사안내.png" data-ko="연골주사 안내문" data-en="Cartilage injection guide" data-i18n="true" onclick="openInlineViewer(this)">
-      연골주사 안내문
+    <button class="nav-btn" data-title="혈압 측정 전 안내" data-img="혈압측정가이드.jpg" data-ko="혈압 측정 전 안내" data-en="Before measuring blood pressure" data-i18n="true" onclick="openInlineViewer(this)">
+      혈압 측정 전 안내
     </button>
   </div>
 
   <div class="nav-item">
-    <button class="nav-btn" data-title="투약안내문" data-img="투약안내문2.png" data-ko="투약안내문" data-en="Medication guide" data-i18n="true" onclick="openInlineViewer(this)">
-      투약안내문
+    <button class="nav-btn" onclick="window.open('medication.html', '_blank')" data-ko="의약품 투약 및 식이요법" data-en="Medication &amp; diet guide" data-i18n="true">
+      의약품 투약 및 식이요법
     </button>
   </div>
 
   <div class="nav-item">
-    <button class="nav-btn" data-title="통풍 식이요법" data-img="통풍안내문.png" data-ko="통풍 식이요법" data-en="Gout diet guidance" data-i18n="true" onclick="openInlineViewer(this)">
-      통풍 식이요법
+    <button class="nav-btn" onclick="window.open('bodyparts.html', '_blank')" data-ko="부위별 맞춤 치료 방법" data-en="Treatment by body part" data-i18n="true">
+      부위별 맞춤 치료 방법
     </button>
   </div>
 
   <div class="nav-item">
-    <button class="nav-btn" data-title="온찜질은 얼마나 해야 하나요?" data-img="온찜질시행횟수.png" data-ko="온찜질은 얼마나 해야 하나요?" data-en="How long should I use heat packs?" data-i18n="true" onclick="openInlineViewer(this)">
-      온찜질은 얼마나 해야 하나요?
+    <button class="nav-btn" onclick="window.open('trauma.html', '_blank')" data-ko="외상 및 일반 처치 안내" data-en="Wound &amp; general care guide" data-i18n="true">
+      외상 및 일반 처치 안내
     </button>
   </div>
 
   <div class="nav-item">
-    <button class="nav-btn" data-title="혈압 측정 전 꼭 확인하세요!" data-img="혈압측정가이드.jpg" data-ko="혈압 측정 전 꼭 확인하세요!" data-en="Check these before measuring your blood pressure!" data-i18n="true" onclick="openInlineViewer(this)">
-      혈압 측정 전 꼭 확인하세요!
+    <button class="nav-btn" onclick="window.open('brace.html', '_blank')" data-ko="보조기 착용 방법" data-en="How to wear braces &amp; bandages" data-i18n="true">
+      보조기 착용 방법
     </button>
   </div>
 
   <div class="nav-item">
-    <button class="nav-btn" onclick="window.open('stretch.html', '_blank')" data-ko="스트레칭 가이드 보기" data-en="Open stretching guide" data-i18n="true">
-      스트레칭 가이드 보기
+    <button class="nav-btn" onclick="window.open('stretch.html', '_blank')" data-ko="재활 및 물리치료실 이용 방법" data-en="Rehab &amp; physical therapy room guide" data-i18n="true">
+      재활 및 물리치료실 이용 방법
     </button>
   </div>
 
   <div class="nav-item">
-    <button class="nav-btn" data-title="치료 언제까지 해야 하나요?" data-img="치료지속여부안내.png" data-ko="치료 언제까지 해야 하나요?" data-en="How long do I need treatment?" data-i18n="true" onclick="openInlineViewer(this)">
-      치료 언제까지 해야 하나요?
-    </button>
-  </div>
-
-  <!-- ★ 손상단계별 치료안내 (서브메뉴) ★ -->
-  <div class="nav-item">
-    <button class="nav-btn has-sub" onclick="toggleSubMenu('body', this)" data-ko="손상단계별 치료안내 ▾" data-en="Injury-stage treatment guide ▾" data-i18n="true">
-      손상단계별 치료안내 ▾
-    </button>
-    <div class="sub-menu" id="sub-body">
-      <button class="sub-btn" data-title="목" data-img="목.png" data-ko="목" data-en="Neck" data-i18n="true" onclick="openInlineViewer(this)">목</button>
-      <button class="sub-btn" data-title="어깨" data-img="어깨.png" data-ko="어깨" data-en="Shoulder" data-i18n="true" onclick="openInlineViewer(this)">어깨</button>
-      <button class="sub-btn" data-title="팔꿈치" data-img="팔꿈치.png" data-ko="팔꿈치" data-en="Elbow" data-i18n="true" onclick="openInlineViewer(this)">팔꿈치</button>
-      <button class="sub-btn" data-title="손목" data-img="손목.png" data-ko="손목" data-en="Wrist" data-i18n="true" onclick="openInlineViewer(this)">손목</button>
-      <button class="sub-btn" data-title="손가락" data-img="손가락.png" data-ko="손가락" data-en="Finger" data-i18n="true" onclick="openInlineViewer(this)">손가락</button>
-      <button class="sub-btn" data-title="허리" data-img="허리.png" data-ko="허리" data-en="Lower back" data-i18n="true" onclick="openInlineViewer(this)">허리</button>
-      <button class="sub-btn" data-title="고관절" data-img="고관절.png" data-ko="고관절" data-en="Hip" data-i18n="true" onclick="openInlineViewer(this)">고관절</button>
-      <button class="sub-btn" data-title="무릎" data-img="무릎.png" data-ko="무릎" data-en="Knee" data-i18n="true" onclick="openInlineViewer(this)">무릎</button>
-      <button class="sub-btn" data-title="발목" data-img="발목.png" data-ko="발목" data-en="Ankle" data-i18n="true" onclick="openInlineViewer(this)">발목</button>
-      <button class="sub-btn" data-title="발가락" data-img="발가락.png" data-ko="발가락" data-en="Toe" data-i18n="true" onclick="openInlineViewer(this)">발가락</button>
-    </div>
-  </div>
-
-  <div class="nav-item">
-    <button class="nav-btn" data-title="족저근막염 치료 안내" data-img="족저근막염.png" data-ko="족저근막염 치료 안내" data-en="Plantar fasciitis treatment guide" data-i18n="true" onclick="openInlineViewer(this)">
-      족저근막염 치료 안내
-    </button>
-  </div>
-
-  <!-- ★ 보조기 착용 안내 (서브메뉴) ★ -->
-  <div class="nav-item">
-    <button class="nav-btn has-sub" onclick="toggleSubMenu('brace', this)" data-ko="보조기 착용 안내 ▾" data-en="Brace-wearing guide ▾" data-i18n="true">
-      보조기 착용 안내 ▾
-    </button>
-    <div class="sub-menu" id="sub-brace">
-      <button class="sub-btn" data-title="쿨밴드·코반 착용 후 붓기 관리" data-img="쿨밴드코반붓기관리.png" data-ko="쿨밴드·코반 착용 후 붓기 관리" data-en="Swelling management after using cool band/coban" data-i18n="true" onclick="openInlineViewer(this)">쿨밴드·코반 착용 후 붓기 관리</button>
-      <button class="sub-btn" data-title="등,허리 보호대 착용법" data-yt="https://www.youtube.com/embed/c_PIbMNUdZA" onclick="openYoutubeViewer(this)">등,허리 보호대 착용법</button>
-      <button class="sub-btn" data-title="쇄골 붕대 착용법" data-yt="https://www.youtube.com/embed/LPwweV6ZNng" onclick="openYoutubeViewer(this)">쇄골 붕대 착용법</button>
-      <button class="sub-btn" data-title="어깨 보조기(울트라슬링) 착용법" data-yt="https://www.youtube.com/embed/cnSkeiqLJMo" onclick="openYoutubeViewer(this)">어깨 보조기(울트라슬링) 착용법</button>
-      <button class="sub-btn" data-title="어깨 보조기(벨포밴드) 착용법" data-yt="https://www.youtube.com/embed/WkobM8yOg9g" onclick="openYoutubeViewer(this)">어깨 보조기(벨포밴드) 착용법</button>
-      <button class="sub-btn" data-title="어깨 보조기(벨포밴드) 푸는 법" data-yt="https://www.youtube.com/embed/9yBB_ESf5k0" onclick="openYoutubeViewer(this)">어깨 보조기(벨포밴드) 푸는 법</button>
-      <button class="sub-btn" data-title="복대 착용법" data-yt="https://www.youtube.com/embed/DP6h5SoP0DM" onclick="openYoutubeViewer(this)">복대 착용법</button>
-      <button class="sub-btn" data-title="손가락 붕대 착용법" data-yt="https://www.youtube.com/embed/HMFaYfTpUpE" onclick="openYoutubeViewer(this)">손가락 붕대 착용법</button>
-      <button class="sub-btn" data-title="발목 붕대 착용법" data-yt="https://www.youtube.com/embed/Sabm_AN_mC8" onclick="openYoutubeViewer(this)">발목 붕대 착용법</button>
-      <button class="sub-btn" data-title="발가락 붕대 및 코반 감는 법" data-yt="https://www.youtube.com/embed/PjD-nbaoJlQ" onclick="openYoutubeViewer(this)">발가락 붕대 및 코반 감는 법</button>
-      <button class="sub-btn" data-title="한 쪽 목발 사용법" data-yt="https://www.youtube.com/embed/zAD0hfpW_Y4" onclick="openYoutubeViewer(this)">한 쪽 목발 사용법</button>
-      <button class="sub-btn" data-title="양 쪽 목발 사용법" data-yt="https://www.youtube.com/embed/SaA0wmrbeUs" onclick="openYoutubeViewer(this)">양 쪽 목발 사용법</button>
-    </div>
-  </div>
-
-  <!-- ★ 특수 치료 안내 (서브메뉴) ★ -->
-  <div class="nav-item">
-    <button class="nav-btn has-sub" onclick="toggleSubMenu('special', this)" data-ko="특수 치료 안내 ▾" data-en="Special treatment guide ▾" data-i18n="true">
-      특수 치료 안내 ▾
-    </button>
-    <div class="sub-menu" id="sub-special">
-      <button class="sub-btn" data-title="신장분사치료" data-img="cryo.png" onclick="openInlineViewer(this)">신장분사치료</button>
-      <button class="sub-btn" data-title="고출력레이저치료" data-img="레이저.png" onclick="openInlineViewer(this)">고출력레이저치료</button>
-      <button class="sub-btn" data-title="충격파치료" data-img="충격파.png" onclick="openInlineViewer(this)">충격파치료</button>
-    </div>
-  </div>
-
-  <div class="nav-item">
-    <button class="nav-btn" data-title="소독 및 실밥 제거 후 안내" data-img="소독안내문.png" data-ko="소독 및 실밥 제거 후 안내" data-en="After disinfection and stitch removal guide" data-i18n="true" onclick="openInlineViewer(this)">
-      소독 및 실밥 제거 후 안내
+    <button class="nav-btn" onclick="window.open('fees.html', '_blank')" data-ko="비급여 및 서류 비용 안내" data-en="Non-covered &amp; document fee guide" data-i18n="true">
+      비급여 및 서류 비용 안내
     </button>
   </div>
 
   <div class="nav-item">
-    <button class="nav-btn" data-title="흉터 연고 사용법" data-img="흉터 연고.jpg" data-ko="흉터 연고 사용법" data-en="How to use scar ointment" data-i18n="true" onclick="openInlineViewer(this)">
-      흉터 연고 사용법
+    <button class="nav-btn" data-title="카카오톡 채널 추가 방법" data-img="카톡채널추가방법.png" data-ko="안내문 추후 확인방법" data-en="How to check the guide later" data-i18n="true" onclick="openInlineViewer(this)">
+      안내문 추후 확인방법
     </button>
   </div>
 
   <div class="nav-item">
-    <button class="nav-btn" onclick="openSliderViewer(this, this.textContent.trim(), ['비급여항목안내 (1).png','비급여항목안내 (2).png'])" data-ko="비급여 항목 안내" data-en="Non-covered items guide" data-i18n="true">
-      비급여 항목 안내
-    </button>
-  </div>
-
-  <div class="nav-item">
-    <button class="nav-btn" data-title="서류 비용 안내" data-img="원내서류안내_A4.png" data-ko="서류 비용 안내" data-en="Document fee guide" data-i18n="true" onclick="openInlineViewer(this)">
-      서류 비용 안내
-    </button>
-  </div>
-
-  <div class="nav-item">
-    <button class="nav-btn" data-title="카카오톡 채널 추가 방법" data-img="카톡채널추가방법.png" data-ko="안내문을 나중에도 확인하고 싶어요" data-en="I want to review the guide later" data-i18n="true" onclick="openInlineViewer(this)">
-      안내문을 나중에도 확인하고 싶어요
-    </button>
-  </div>
-
-  <div class="nav-item">
-    <button class="nav-btn" onclick="window.open('http://pf.kakao.com/_xikLxcxj', '_blank')" data-ko="카카오톡 채널 추가하러 가기" data-en="Add our KakaoTalk channel" data-i18n="true">
-      카카오톡 채널 추가하러 가기
+    <button class="nav-btn" onclick="window.open('http://pf.kakao.com/_xikLxcxj', '_blank')" data-ko="카카오 채널 추가" data-en="Add our KakaoTalk channel" data-i18n="true">
+      카카오 채널 추가
     </button>
   </div>
 

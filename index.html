@@ -11,6 +11,14 @@
 
 <body>
   <div class="container">
+    <!-- 상단 언어 선택 (홈) -->
+    <div class="page-topbar" style="justify-content:center;">
+      <div class="lang-switch" aria-label="Language switch">
+        <button type="button" class="lang-btn active" data-lang="ko" onclick="setLanguage('ko')">한국어</button>
+        <button type="button" class="lang-btn" data-lang="en" onclick="setLanguage('en')">English</button>
+      </div>
+    </div>
+
     <!-- 컴포넌트 마운트 지점: js/main.js 가 components/*.html 을 fetch 하여 조립 -->
     <div data-component="header"></div>
     <div data-component="nav"></div>
