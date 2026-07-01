@@ -18,7 +18,7 @@ const translationMap = {
     '쿨밴드·코반 착용 후 붓기 관리': '쿨밴드·코반 착용 후 붓기 관리',
     '등,허리 보호대 착용법': '등,허리 보호대 착용법', '쇄골 붕대 착용법': '쇄골 붕대 착용법', '어깨 보조기(울트라슬링) 착용법': '어깨 보조기(울트라슬링) 착용법',
     '어깨 보조기(벨포밴드) 착용법': '어깨 보조기(벨포밴드) 착용법', '어깨 보조기(벨포밴드) 푸는 법': '어깨 보조기(벨포밴드) 푸는 법',
-    '복대 착용법': '복대 착용법', '손가락 붕대 착용법': '손가락 붕대 착용법', '발목 붕대 착용법': '발목 붕대 착용법', '발가락 붕대 및 코반 감는 법': '발가락 붕대 및 코반 감는 법',
+    '복대 착용법': '복대 착용법', '손가락 붕대 착용법': '손가락 붕대 착용법', '발목 붕대 착용법': '발목 붕대 착용법', '발가락 붕대 감는 법': '발가락 붕대 감는 법',
     '한 쪽 목발 사용법': '한 쪽 목발 사용법', '양 쪽 목발 사용법': '양 쪽 목발 사용법', '신장분사치료': '신장분사치료', '고출력레이저치료': '고출력레이저치료', '충격파치료': '충격파치료'
   },
   en: {
@@ -34,7 +34,7 @@ const translationMap = {
     '쿨밴드·코반 착용 후 붓기 관리': 'Swelling management after wearing cool band/coban',
     '등,허리 보호대 착용법': 'How to wear a back/lumbar brace', '쇄골 붕대 착용법': 'How to wrap a clavicle bandage', '어깨 보조기(울트라슬링) 착용법': 'How to wear an ultra-sling shoulder brace',
     '어깨 보조기(벨포밴드) 착용법': 'How to wear a Velpo band shoulder brace', '어깨 보조기(벨포밴드) 푸는 법': 'How to remove a Velpo band shoulder brace',
-    '복대 착용법': 'How to wear a belt support', '손가락 붕대 착용법': 'How to wrap a finger bandage', '발목 붕대 착용법': 'How to wrap an ankle bandage', '발가락 붕대 및 코반 감는 법': 'How to wrap a toe bandage and coban',
+    '복대 착용법': 'How to wear a belt support', '손가락 붕대 착용법': 'How to wrap a finger bandage', '발목 붕대 착용법': 'How to wrap an ankle bandage', '발가락 붕대 감는 법': 'How to wrap a toe bandage',
     '한 쪽 목발 사용법': 'How to use one crutch', '양 쪽 목발 사용법': 'How to use two crutches', '신장분사치료': 'Cryotherapy', '고출력레이저치료': 'High-power laser therapy', '충격파치료': 'Shock wave therapy'
   }
 };
