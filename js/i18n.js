@@ -4,6 +4,9 @@
    - 언어 설정 저장(localStorage) 및 적용
    ───────────────────────────────────────────── */
 
+/* 배너 캐시 버전: 배너 이미지를 같은 파일명으로 교체할 때마다 이 값을 올린다. */
+const BANNER_VER = '20260704';
+
 const translationMap = {
   ko: {
     '손상단계별 치료안내 ▾': '손상단계별 치료안내 ▾',
@@ -79,12 +82,13 @@ function applyLanguage(lang = getPreferredLanguage()){
     btn.classList.toggle('active', btn.getAttribute('data-lang') === currentLang);
   });
 
-  /* 섹션 배너(스트레칭/위생교육) + 헤더 배너: 영어 모드면 en/<배너> 시도, 파일 없으면 한국어 배너로 자동 대체 */
+  /* 섹션 배너(스트레칭/위생교육) + 헤더 배너: 영어 모드면 en/<배너> 시도, 파일 없으면 한국어 배너로 자동 대체.
+     배너 파일명이 그대로 교체되는 경우가 많아, 버전 쿼리로 브라우저 캐시를 무력화한다. (교체 시 BANNER_VER 갱신) */
   document.querySelectorAll('.header-banner, .stretch-banner').forEach(img => {
     const koBanner = img.getAttribute('data-img');
     if (!koBanner) return;
-    img.onerror = function(){ this.onerror = null; this.src = koBanner; };
-    img.src = (currentLang === 'en') ? 'en/' + koBanner : koBanner;
+    img.onerror = function(){ this.onerror = null; this.src = koBanner + '?v=' + BANNER_VER; };
+    img.src = ((currentLang === 'en') ? 'en/' + koBanner : koBanner) + '?v=' + BANNER_VER;
   });
 
   const footerTitle = document.querySelector('footer p[data-i18n="footer-title"]');
