@@ -66,11 +66,13 @@ function openSliderViewer(button, title, images){
   /* 영어 모드: en/<같은 파일명> 우선, 없으면 한국어 이미지로 자동 대체(onerror) */
   const isEn = document.documentElement.lang === 'en';
   const enOf = ko => (isEn && ko) ? 'en/' + ko : ko;
+  /* 슬라이더 이미지도 같은 파일명으로 교체되는 경우가 많아, 버전 쿼리로 캐시를 무력화한다. (교체 시 BANNER_VER 갱신) */
+  const ver = (typeof BANNER_VER !== 'undefined') ? ('?v=' + BANNER_VER) : '';
 
   const imgsHtml = images.map(ko => {
     const s = enOf(ko);
-    const onErr = (s !== ko) ? ` onerror="this.onerror=null;this.src='${encodeURI(ko)}'"` : '';
-    return `<img src="${encodeURI(s)}"${onErr} alt="${escapeHtml(currentTitle)}" loading="lazy">`;
+    const onErr = (s !== ko) ? ` onerror="this.onerror=null;this.src='${encodeURI(ko)}${ver}'"` : '';
+    return `<img src="${encodeURI(s)}${ver}"${onErr} alt="${escapeHtml(currentTitle)}" loading="lazy">`;
   }).join('');
 
   const dotsHtml = images.map((_,i) =>
@@ -78,7 +80,7 @@ function openSliderViewer(button, title, images){
   ).join('');
 
   const sliderDownloadBtns = images.map((ko, i) =>
-    `<a href="${encodeURI(enOf(ko))}" download class="download-btn slider-dl" id="sliderDl_${i}" style="${i===0?'':'display:none'}">
+    `<a href="${encodeURI(enOf(ko))}${ver}" download="${escapeHtml(ko)}" class="download-btn slider-dl" id="sliderDl_${i}" style="${i===0?'':'display:none'}">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <path d="M12 3v13M7 11l5 5 5-5"/><path d="M5 20h14"/>
       </svg>
