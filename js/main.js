@@ -8,7 +8,9 @@
 
 async function mountComponent(el){
   const name = el.getAttribute('data-component');
-  const res  = await fetch(`components/${name}.html`);
+  /* 컴포넌트 파셜도 버튼/배너가 추가·교체되면 브라우저가 옛 버전을 재사용하지 않도록 버전 쿼리로 캐시를 무력화한다. (변경 시 BANNER_VER 갱신) */
+  const ver  = (typeof BANNER_VER !== 'undefined') ? ('?v=' + BANNER_VER) : '';
+  const res  = await fetch(`components/${name}.html${ver}`);
   if(!res.ok) throw new Error(`컴포넌트 로드 실패: ${name} (${res.status})`);
   const html = await res.text();
   const tpl  = document.createElement('template');
