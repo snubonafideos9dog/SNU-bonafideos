@@ -5,7 +5,7 @@
    ───────────────────────────────────────────── */
 
 /* 배너 캐시 버전: 배너 이미지를 같은 파일명으로 교체할 때마다 이 값을 올린다. */
-const BANNER_VER = '20260820b';
+const BANNER_VER = '20260821c';
 
 const translationMap = {
   ko: {
@@ -69,9 +69,8 @@ function applyLanguage(lang = getPreferredLanguage()){
     if (text) btn.textContent = text;
   });
 
-  /* 이미지의 언어별 전환은 viewer.js(buildViewerHtml/openSliderViewer)에서
-     현재 문서 언어(document.documentElement.lang)를 보고 en/<파일명>을 시도하므로,
-     여기서는 열려 있는 뷰어만 다시 그려주면 됩니다. */
+  /* 이미지의 지점·언어별 전환은 clinic.js(clinicImgAttrs/clinicImgSrc)가 폴백 체인으로 처리하고
+     viewer.js 가 그것을 그대로 쓰므로, 여기서는 열려 있는 뷰어만 다시 그려주면 됩니다. */
   refreshCurrentViewer();
 
   document.querySelectorAll('[data-title-ko][data-title-en]').forEach(btn => {
@@ -82,23 +81,39 @@ function applyLanguage(lang = getPreferredLanguage()){
     btn.classList.toggle('active', btn.getAttribute('data-lang') === currentLang);
   });
 
-  /* 섹션 배너(스트레칭/위생교육) + 헤더 배너: 영어 모드면 en/<배너> 시도, 파일 없으면 한국어 배너로 자동 대체.
+  /* 지점 전환 버튼 라벨/활성 상태, 지점별 링크 버튼 노출 여부 갱신 */
+  applyClinic();
+
+  /* 섹션 배너(스트레칭/위생교육) + 헤더 배너: 지점 × 언어 폴백 체인은 clinic.js 가 처리한다.
+     (clinics/<지점>/en/X → clinics/<지점>/X → en/X → X)
      배너 파일명이 그대로 교체되는 경우가 많아, 버전 쿼리로 브라우저 캐시를 무력화한다. (교체 시 BANNER_VER 갱신) */
   document.querySelectorAll('.header-banner, .stretch-banner').forEach(img => {
     const koBanner = img.getAttribute('data-img');
     if (!koBanner) return;
-    img.onerror = function(){ this.onerror = null; this.src = koBanner + '?v=' + BANNER_VER; };
-    img.src = ((currentLang === 'en') ? 'en/' + koBanner : koBanner) + '?v=' + BANNER_VER;
+    clinicBindImage(img, koBanner);
   });
 
+  /* 푸터의 상호명·전화·지도 링크는 지점마다 다르므로 clinic.js 의 지점 정보에서 가져온다. */
+  const clinic = getClinic();
   const footerTitle = document.querySelector('footer p[data-i18n="footer-title"]');
   const footerNote = document.querySelector('footer p[data-i18n="footer-note"]');
   const footerPhone = document.querySelector('footer p[data-i18n="footer-phone"]');
-  if (footerTitle) footerTitle.innerHTML = '<a href="https://map.naver.com/p/entry/place/1974407241?placePath=%252Fhome%253Fentry%253Dplt&searchType=place&lng=126.9534376&lat=37.4806869&c=15.00,0,0,0,dh" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;"><strong>' + (currentLang === 'en' ? 'Bonafide Orthopedic Clinic' : '반듯한정형외과 | Bonafide Orthopedic Clinic') + '</strong></a>';
+  if (footerTitle) {
+    const label = '<strong>' + clinic.name[currentLang] + '</strong>';
+    footerTitle.innerHTML = clinic.map
+      ? '<a href="' + clinic.map + '" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">' + label + '</a>'
+      : label;
+  }
   if (footerNote) footerNote.textContent = currentLang === 'en' ? 'Please contact staff if you have any questions.' : '궁금하신 사항은 직원에게 언제든지 문의해주세요.';
-  if (footerPhone) footerPhone.innerHTML = 'TEL : <a href="tel:028757590" style="color:inherit;text-decoration:underline;">02-875-7590</a>';
+  if (footerPhone) {
+    /* 전화번호가 아직 등록되지 않은 지점에서는 잘못된 번호를 노출하지 않도록 줄 자체를 감춘다. */
+    footerPhone.style.display = clinic.tel ? '' : 'none';
+    if (clinic.tel) {
+      footerPhone.innerHTML = 'TEL : <a href="' + clinicTelHref(clinic.tel) + '" style="color:inherit;text-decoration:underline;">' + clinic.tel + '</a>';
+    }
+  }
 
-  document.title = currentLang === 'en' ? 'Bonafide Orthopedic Clinic Patient Guide' : '반듯한정형외과 환자 안내';
+  document.title = clinicDocTitle(currentLang);
 }
 
 function setLanguage(lang){

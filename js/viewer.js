@@ -63,24 +63,18 @@ function openSliderViewer(button, title, images){
 
   let idx = 0;
 
-  /* 영어 모드: en/<같은 파일명> 우선, 없으면 한국어 이미지로 자동 대체(onerror) */
-  const isEn = document.documentElement.lang === 'en';
-  const enOf = ko => (isEn && ko) ? 'en/' + ko : ko;
-  /* 슬라이더 이미지도 같은 파일명으로 교체되는 경우가 많아, 버전 쿼리로 캐시를 무력화한다. (교체 시 BANNER_VER 갱신) */
-  const ver = (typeof BANNER_VER !== 'undefined') ? ('?v=' + BANNER_VER) : '';
-
-  const imgsHtml = images.map(ko => {
-    const s = enOf(ko);
-    const onErr = (s !== ko) ? ` onerror="this.onerror=null;this.src='${encodeURI(ko)}${ver}'"` : '';
-    return `<img src="${encodeURI(s)}${ver}"${onErr} alt="${escapeHtml(currentTitle)}" loading="lazy">`;
-  }).join('');
+  /* 지점 × 언어 폴백 체인(clinic.js): clinics/<지점>/en/X → clinics/<지점>/X → en/X → X
+     캐시 무력화 버전 쿼리(BANNER_VER)도 clinic.js 안에서 함께 붙는다. */
+  const imgsHtml = images.map(ko =>
+    `<img ${clinicImgAttrs(ko)} alt="${escapeHtml(currentTitle)}" loading="lazy">`
+  ).join('');
 
   const dotsHtml = images.map((_,i) =>
     `<button class="slider-dot${i===0?' active':''}" onclick="slideTo(${i})"></button>`
   ).join('');
 
   const sliderDownloadBtns = images.map((ko, i) =>
-    `<a href="${encodeURI(enOf(ko))}${ver}" download="${escapeHtml(ko)}" class="download-btn slider-dl" id="sliderDl_${i}" style="${i===0?'':'display:none'}">
+    `<a href="${clinicImgSrc(ko)}" download="${escapeHtml(ko)}" class="download-btn slider-dl" id="sliderDl_${i}" style="${i===0?'':'display:none'}">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <path d="M12 3v13M7 11l5 5 5-5"/><path d="M5 20h14"/>
       </svg>
@@ -139,16 +133,14 @@ function slideBy(dir){
 function buildViewerHtml(button){
   const title = (button.textContent || '').trim() || button.dataset.title || '';
   const koSrc = button.dataset.img || '';
-  const isEn  = document.documentElement.lang === 'en';
-  /* 영어 모드: en/<같은 파일명> 을 먼저 시도하고, 파일이 없으면 한국어 이미지로 자동 대체(onerror) */
-  const src   = (isEn && koSrc) ? 'en/' + koSrc : koSrc;
-  const onErr = (src !== koSrc) ? ` onerror="this.onerror=null;this.src='${encodeURI(koSrc)}'"` : '';
-  const isVideo = /\.(mp4|mov|webm|ogg)$/i.test(src);
+  /* 지점 × 언어 폴백 체인(clinic.js): clinics/<지점>/en/X → clinics/<지점>/X → en/X → X */
+  const src   = clinicImgSrc(koSrc);
+  const isVideo = /\.(mp4|mov|webm|ogg)(\?|$)/i.test(src);
   const mediaHtml = isVideo
-    ? `<video class="inline-viewer-img" src="${encodeURI(src)}" controls playsinline style="background:#000;"></video>`
-    : `<img class="inline-viewer-img" src="${encodeURI(src)}"${onErr} alt="${escapeHtml(title)}">`;
+    ? `<video class="inline-viewer-img" src="${src}" controls playsinline style="background:#000;"></video>`
+    : `<img class="inline-viewer-img" ${clinicImgAttrs(koSrc)} alt="${escapeHtml(title)}">`;
   const downloadBtn = !isVideo ? `
-    <a href="${encodeURI(src)}" download class="download-btn">
+    <a href="${src}" download class="download-btn">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <path d="M12 3v13M7 11l5 5 5-5"/><path d="M5 20h14"/>
       </svg>

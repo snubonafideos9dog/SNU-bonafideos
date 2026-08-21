@@ -1,0 +1,77 @@
+/* ── 지점(네트워크) 전환 바 ──
+   페이지 최상단에 표시. 선택하면 주소창 링크가 해당 지점 링크로 바뀌므로,
+   그 링크를 그대로 지점 QR 로 뽑아 쓰면 된다. (clinic.js) */
+.clinic-switch{
+  max-width:1280px;margin:0 auto 10px;
+  display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;
+  padding:8px 12px;
+  background:rgba(0,0,0,0.14);
+  border:1px solid rgba(255,255,255,0.18);
+  border-radius:999px;
+}
+
+.clinic-switch-label{
+  color:#fff;opacity:0.75;font-weight:700;font-size:0.85em;
+  letter-spacing:0.02em;margin-right:2px;
+}
+
+.clinic-btn{
+  border:1px solid rgba(255,255,255,0.35);
+  background:rgba(255,255,255,0.12);
+  color:#fff;
+  border-radius:999px;padding:8px 16px;cursor:pointer;
+  font-weight:800;font-size:0.95em;
+  transition:all .2s ease;white-space:nowrap;
+}
+.clinic-btn:hover{background:rgba(255,255,255,0.22);}
+.clinic-btn.active{
+  background:#fff;color:#6b5d50;
+  box-shadow:0 6px 16px rgba(0,0,0,0.18);
+}
+
+/* 해당 지점 자료(가격표 등)가 아직 없을 때 — 다른 지점 이미지를 대신 보여주지 않는다 */
+.clinic-missing{
+  color:#fff;text-align:center;
+  padding:28px 20px;margin:10px 0;
+  background:rgba(255,255,255,0.10);
+  border:1px dashed rgba(255,255,255,0.35);
+  border-radius:16px;
+  font-weight:700;line-height:1.6;
+}
+
+@media(max-width:768px){
+  .clinic-switch{gap:6px;padding:7px 10px;}
+  .clinic-btn{padding:7px 12px;font-size:0.9em;}
+  .clinic-switch-label{font-size:0.8em;}
+}
+
+/* 슬라이더 안에서 "준비 중"으로 대체될 때도 한 칸(100%)을 그대로 차지하도록 */
+.slider-track .clinic-missing{
+  flex:0 0 100%;width:100%;
+  margin:0;color:#6b5d50;
+  background:#fff;border:none;border-radius:16px;
+  padding:70px 20px;
+}
+
+/* 인라인 뷰어(흰 카드) 안에서는 어두운 글씨로 */
+.inline-viewer-inner .clinic-missing{color:#6b5d50;background:rgba(107,93,80,0.06);border-color:rgba(107,93,80,0.3);}
+
+/* ── 배너 아래 지점 표기 줄 ──
+   배너 이미지는 지점 공통 한 장, 상호·전화는 여기서 지점별로 출력한다. */
+.clinic-identity{
+  display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;
+  color:#fff;text-align:center;
+  margin:12px 0 4px;
+  font-size:1.02em;line-height:1.5;
+}
+.clinic-identity:empty{display:none;}
+.clinic-identity-name{font-weight:800;letter-spacing:-0.01em;}
+.clinic-identity-sep{opacity:0.45;}
+.clinic-identity-tel{
+  color:inherit;font-weight:800;
+  text-decoration:underline;text-underline-offset:3px;
+}
+
+@media(max-width:768px){
+  .clinic-identity{gap:8px;margin:10px 0 2px;font-size:0.95em;}
+}

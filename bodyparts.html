@@ -18,7 +18,7 @@
         <button type="button" class="lang-btn" data-lang="en" onclick="setLanguage('en')">English</button>
       </div>
       <div style="display:flex;gap:8px;">
-        <button type="button" class="close-page-btn" onclick="location.href='index.html'" data-ko="← 뒤로" data-en="← Back" data-i18n="true">← 뒤로</button>
+        <button type="button" class="close-page-btn" onclick="goPage('index.html')" data-ko="← 뒤로" data-en="← Back" data-i18n="true">← 뒤로</button>
         <button type="button" class="close-page-btn" onclick="closeBodypartsPage()" data-ko="✕ 닫기" data-en="✕ Close" data-i18n="true">✕ 닫기</button>
       </div>
     </div>
@@ -28,6 +28,7 @@
   </div>
 
   <!-- JS 모듈 (메인과 동일) -->
+  <script src="js/clinic.js"></script>
   <script src="js/i18n.js"></script>
   <script src="js/viewer.js"></script>
   <script>
@@ -35,7 +36,7 @@
     function closeBodypartsPage(){
       window.close();
       setTimeout(function(){
-        if(!window.closed){ window.location.href = 'index.html'; }
+        if(!window.closed){ goPage('index.html'); }
       }, 150);
     }
   </script>
