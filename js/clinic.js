@@ -29,7 +29,7 @@ const CLINICS = {
   bonafide365clinic: {
     id: 'bonafide365clinic',
     dir: 'clinics/bonafide365clinic',
-    tab:         { ko: '반듯한365의원', en: 'Bonafide 365 Clinic' },
+    tab:         { ko: '까치산점', en: 'Kkachisan' },
     displayName: { ko: '반듯한365의원 까치산점', en: 'Bonafide 365 Clinic — Kkachisan' },
     name:        { ko: '반듯한365의원 | Bonafide 365 Clinic', en: 'Bonafide 365 Clinic' },
     titleSuffix: { ko: '반듯한365의원', en: 'Bonafide 365 Clinic' },

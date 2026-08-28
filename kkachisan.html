@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>반듯한365의원 까치산점 환자 안내</title>
+  <meta name="robots" content="noindex" />
+
+  <!-- ─────────────────────────────────────────────
+       반듯한365의원(까치산점) 전용 진입 링크.
+
+       까치산점 QR·안내물에는 이 주소를 박아 둔다.
+         .../kkachisan.html
+       서울대입구점은 기존 주소(.../ 또는 .../index.html)를 그대로 쓴다.
+       기존 링크·QR 은 전혀 건드리지 않는다.
+
+       하는 일은 index.html?c=bonafide365clinic 로 넘겨주는 것뿐이다.
+       안내문 내용을 여기에 복사하지 않는 이유: 두 벌이 되면 한쪽만 고쳐지는
+       사고가 난다. 지점 차이는 js/clinic.js 한 곳에서만 갈라져야 한다.
+
+       지점 id 를 여기에 한 번 더 적는 것은 의도적이다. 이 파일은 clinic.js 를
+       불러오지 않고 곧바로 넘겨야 화면 깜빡임이 없기 때문. id 를 바꿀 일이
+       생기면 js/clinic.js 와 이 파일 두 곳을 함께 고칠 것.
+       ───────────────────────────────────────────── -->
+
+  <!-- 스크립트가 막힌 환경 대비. 스크립트가 살아 있으면 아래 location.replace 가
+       먼저 처리하므로, meta refresh 때문에 뒤로가기가 되돌아오는 일은 없다. -->
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=index.html?c=bonafide365clinic" />
+  </noscript>
+
+  <script>
+    /* replace 를 쓰는 이유: 히스토리에 이 페이지를 남기지 않아야
+       환자가 뒤로가기를 눌렀을 때 여기로 되돌아와 무한 반복되지 않는다. */
+    location.replace('index.html?c=bonafide365clinic');
+  </script>
+
+  <style>
+    body{
+      margin:0;min-height:100vh;
+      display:flex;align-items:center;justify-content:center;
+      background:#6b5d50;color:#fff;
+      font-family:"Malgun Gothic","맑은 고딕",system-ui,-apple-system,sans-serif;
+      font-weight:700;text-align:center;line-height:1.7;padding:24px;
+    }
+    a{color:#fff;}
+  </style>
+</head>
+
+<body>
+  <p>
+    반듯한365의원 까치산점 환자 안내로 이동합니다…<br />
+    <a href="index.html?c=bonafide365clinic">자동으로 넘어가지 않으면 여기를 눌러주세요</a>
+  </p>
+</body>
+</html>
