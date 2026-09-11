@@ -1,0 +1,15 @@
+{
+  "name": "patient-guide",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "콜라겐 재생 치료 및 입원 당일 환자 상담 가이드",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^7.1.5"
+  }
+}

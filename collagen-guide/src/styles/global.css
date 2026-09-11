@@ -1,0 +1,157 @@
+/* 전역 레이아웃 · 배경 · 공용 유틸리티 (컴포넌트 스타일은 *.module.css) */
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(1100px 620px at 12% -8%, rgba(42, 112, 240, 0.14), transparent 62%),
+    radial-gradient(900px 560px at 92% 4%, rgba(211, 173, 99, 0.13), transparent 60%),
+    radial-gradient(1000px 700px at 50% 108%, rgba(24, 86, 207, 0.1), transparent 65%),
+    linear-gradient(180deg, #f7f9fd 0%, #eef2f8 46%, #e9eff7 100%);
+}
+
+.app {
+  width: 100%;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding: 0 var(--page-pad) var(--sp-9);
+}
+
+
+/* ── 화면 모드: 상담(단계별) / 요약(한 장) ───────────────── */
+.views > .stageView,
+.views > .summaryView {
+  display: none;
+}
+
+.views[data-view='stage'] > .stageView,
+.views[data-view='summary'] > .summaryView {
+  display: block;
+}
+
+/* 상담 모드는 환자와 함께 보는 화면 → 본문 15px에서 18px로 키운다 */
+.stageView {
+  --fs-body: 1.125rem;
+  --fs-sm: 1rem;
+  --fs-xs: 0.86rem;
+  --fs-h2: clamp(1.35rem, 1.05rem + 1vw, 1.8rem);
+  --fs-h3: clamp(1.2rem, 1rem + 0.6vw, 1.5rem);
+}
+
+.summaryView [data-stage-only] {
+  display: none;
+}
+
+/* 2단 보드: 좌(1·2단계) / 우(3·4단계).
+   DOM 순서는 1→2→3→4로 두고 데스크톱에서만 배치를 바꿔
+   모바일 스택 시 읽는 순서가 깨지지 않도록 한다. */
+.board {
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+  gap: clamp(18px, 1.8vw, 30px);
+  align-items: start;
+}
+
+.board > *:nth-child(1) {
+  grid-area: 1 / 1;
+}
+.board > *:nth-child(2) {
+  grid-area: 2 / 1;
+}
+.board > *:nth-child(3) {
+  grid-area: 1 / 2;
+}
+.board > *:nth-child(4) {
+  grid-area: 2 / 2;
+}
+
+@media (max-width: 1080px) {
+  .board {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .board > *:nth-child(1),
+  .board > *:nth-child(2),
+  .board > *:nth-child(3),
+  .board > *:nth-child(4) {
+    grid-area: auto;
+  }
+}
+
+/* 스크롤 인 리빌 */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity var(--dur-3) var(--ease-out),
+    transform var(--dur-3) var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal.isVisible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+::selection {
+  background: var(--brand-100);
+  color: var(--ink-900);
+}
+
+@media (pointer: fine) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--line-strong) transparent;
+  }
+}
+
+/* ── 인쇄 (상담 후 출력용) ───────────────────────────────── */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 10mm;
+  }
+  body {
+    background: #fff;
+  }
+  body::before {
+    display: none;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .app {
+    padding: 0;
+  }
+  /* 인쇄는 언제나 '요약 한 장' 기준 */
+  .views > .stageView {
+    display: none !important;
+  }
+  .views > .summaryView {
+    display: block !important;
+  }
+  .board {
+    gap: 8mm;
+  }
+}

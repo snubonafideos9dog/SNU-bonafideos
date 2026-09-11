@@ -1,0 +1,159 @@
+.wrap {
+  padding: clamp(18px, 1.9vw, 26px);
+  border-radius: var(--r-lg);
+  border: 1px solid var(--line);
+  background: linear-gradient(170deg, #fff, var(--surface-2));
+  box-shadow: var(--sh-sm);
+}
+
+.headline {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: var(--fs-h3);
+  font-weight: 750;
+  letter-spacing: -0.03em;
+  line-height: 1.45;
+  color: var(--ink-900);
+}
+
+.headline svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: var(--brand-500);
+}
+
+.sub {
+  margin-top: 8px;
+  padding-left: 28px;
+  font-size: var(--fs-sm);
+  line-height: 1.65;
+  color: var(--ink-500);
+}
+
+.tableWrap {
+  margin-top: clamp(14px, 1.5vw, 20px);
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 420px;
+}
+
+.table th,
+.table td {
+  padding: 11px 10px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  border-bottom: 1px solid var(--line);
+}
+
+.table thead th {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--ink-400);
+  border-bottom-color: var(--line-strong);
+}
+
+.rowHead {
+  text-align: left !important;
+  white-space: nowrap;
+}
+
+.rowName {
+  font-size: var(--fs-body);
+  font-weight: 750;
+  letter-spacing: -0.03em;
+  color: var(--ink-900);
+}
+
+.rowUnit {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--ink-400);
+}
+
+.amount {
+  font-size: var(--fs-body);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--ink-700);
+}
+
+.premiumRow .amount {
+  color: var(--brand-700);
+}
+
+.table tbody tr:last-child th,
+.table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.table tbody tr:hover td,
+.table tbody tr:hover th {
+  background: var(--brand-50);
+}
+
+.footnote {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 11px 14px;
+  border-radius: var(--r-md);
+  background: var(--surface-3);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: var(--ink-500);
+}
+
+.footnote svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--ink-300);
+}
+
+/* ── 실손보험 안내 (비용 화면에서 미리 안심시키는 블록) ──── */
+.insurance {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 12px;
+  padding: clamp(13px, 1.3vw, 17px) clamp(14px, 1.4vw, 18px);
+  border-radius: var(--r-md);
+  border: 1px solid rgba(211, 173, 99, 0.4);
+  background: linear-gradient(120deg, var(--gold-100), rgba(255, 255, 255, 0.7));
+}
+
+.insuranceIcon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+  color: var(--gold-600);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(211, 173, 99, 0.45);
+}
+
+.insuranceTitle {
+  font-size: var(--fs-body);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.45;
+  color: #6d5216;
+}
+
+.insuranceText {
+  margin-top: 5px;
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: var(--ink-500);
+}
