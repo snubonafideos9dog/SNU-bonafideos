@@ -27,7 +27,7 @@ const CLINICS = {
   },
 
   /* 반듯한365의원 — 전용 자료는 clinics/bonafide365clinic/ 에 같은 파일명으로 넣는다.
-     TODO: 네이버 지도 등록 후 map, 카카오채널 개설 후 kakao 채울 것 (비어 있으면 각각 링크·버튼이 자동으로 숨겨짐). */
+     map·kakao 모두 채워졌다(2026-10-05). 빈 값으로 두면 해당 링크·버튼이 자동으로 숨겨진다. */
   bonafide365clinic: {
     id: 'bonafide365clinic',
     dir: 'clinics/bonafide365clinic',
@@ -37,8 +37,10 @@ const CLINICS = {
     titleSuffix: { ko: '반듯한365의원', en: 'Bonafide 365 Clinic' },
     docTitle:    { ko: '반듯한365의원 환자 안내', en: 'Bonafide 365 Clinic Patient Guide' },
     tel:   '02-2696-3650',
-    map:   '',
-    kakao: '',
+    map:   'https://map.naver.com/p/entry/place/2081709934?placePath=%252Fhome%253Fentry%253Dplt&searchType=place&lng=126.8461448&lat=37.5323412',
+    /* 받은 주소는 단축링크(m.site.naver.com/2fqJG)였으나, 만료·경유 없이 바로 열리도록
+       실제 도착지인 채널 홈을 쓴다. 끝의 /chat 은 상담창이라 "채널 추가"에는 맞지 않아 뺐다. */
+    kakao: 'https://pf.kakao.com/_kCfxaX',
     exerciseEdu: 'https://bonafide365kcs.pages.dev/#ex1'
   }
 };
