@@ -21,7 +21,9 @@ const CLINICS = {
     docTitle:    { ko: '반듯한정형외과 환자 안내', en: 'Bonafide Orthopedic Clinic Patient Guide' },
     tel:   '02-875-7590',
     map:   'https://map.naver.com/p/entry/place/1974407241?placePath=%252Fhome%253Fentry%253Dplt&searchType=place&lng=126.9534376&lat=37.4806869&c=15.00,0,0,0,dh',
-    kakao: 'http://pf.kakao.com/_xikLxcxj'
+    kakao: 'http://pf.kakao.com/_xikLxcxj',
+    /* 운동교육 사이트 — 아직 서울대입구점은 없다. 비어 있으면 버튼이 자동으로 숨겨진다. */
+    exerciseEdu: ''
   },
 
   /* 반듯한365의원 — 전용 자료는 clinics/bonafide365clinic/ 에 같은 파일명으로 넣는다.
@@ -36,7 +38,8 @@ const CLINICS = {
     docTitle:    { ko: '반듯한365의원 환자 안내', en: 'Bonafide 365 Clinic Patient Guide' },
     tel:   '02-2696-3650',
     map:   '',
-    kakao: ''
+    kakao: '',
+    exerciseEdu: 'https://bonafide365kcs.pages.dev/#ex1'
   }
 };
 
@@ -49,7 +52,10 @@ const CLINIC_PARAM      = 'c';
 const CLINIC_ONLY_IMAGES = [
   '비급여항목안내 (1).png',
   '비급여항목안내 (2).png',
-  '원내서류안내_A4.png'
+  '원내서류안내_A4.png',
+  /* 카카오톡 채널은 지점마다 다르다. 공용으로 폴백되면 환자가 다른 지점
+     채널을 추가하게 되므로, 가격표와 같은 등급으로 막는다. */
+  '카톡채널추가방법.png'
 ];
 
 /* 페이지 고유 제목(예: "비급여 및 서류 비용 안내"). 지점명은 런타임에 붙인다. */

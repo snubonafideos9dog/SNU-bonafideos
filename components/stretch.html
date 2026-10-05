@@ -2,6 +2,15 @@
   <img class="stretch-banner" src="9-재활 및 물리치료실 이용 방법 배너.png" data-img="9-재활 및 물리치료실 이용 방법 배너.png" alt="재활 및 물리치료실 이용 방법 배너" loading="lazy">
 
   <div class="nav-buttons" id="rehabGrid">
+    <!-- 운동교육: 지점 전용 외부 사이트. CLINICS 의 exerciseEdu 가 빈 지점에서는
+         js/clinic.js 의 applyClinic 이 이 칸을 통째로 숨기므로, 그런 지점에서는
+         스트레칭 가이드가 그대로 첫 번째 카드가 된다. -->
+    <div class="nav-item">
+      <button class="nav-btn" onclick="openClinicLink('exerciseEdu')" data-clinic-link="exerciseEdu" data-ko="운동교육" data-en="Exercise education" data-i18n="true">
+        운동교육
+      </button>
+    </div>
+
     <div class="nav-item">
       <button class="nav-btn" onclick="openPage('stretch-guide.html')" data-ko="스트레칭 가이드" data-en="Stretching guide" data-i18n="true">
         스트레칭 가이드
