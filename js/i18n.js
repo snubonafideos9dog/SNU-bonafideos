@@ -47,9 +47,12 @@ function translateLabel(text, lang){
 }
 
 function getPreferredLanguage(){
-  /* 기본값은 항상 한국어. 영어는 페이지에서 ENG 버튼을 눌렀을 때만 적용한다.
-     (브라우저 언어/이전 저장값을 따르지 않음 → 새 창을 열어도 한국어로 시작) */
-  return 'ko';
+  /* 언어는 지점(?c=)과 같이 URL 파라미터(?lang=en)로만 전달한다.
+     localStorage·브라우저 언어를 따르지 않는 이유는, 공용 태블릿에서 앞 환자가
+     영어로 바꿔둔 것이 다음 환자에게 그대로 보이는 것을 막기 위함이다.
+     파라미터가 없으면 한국어 → QR·링크로 새로 들어오면 항상 한국어로 시작하고,
+     영어로 보던 중의 페이지 이동은 openPage/goPage 가 lang=en 을 이어준다. */
+  return new URLSearchParams(location.search).get(LANG_PARAM) === 'en' ? 'en' : 'ko';
 }
 
 function applyLanguage(lang = getPreferredLanguage()){
@@ -117,6 +120,15 @@ function applyLanguage(lang = getPreferredLanguage()){
 }
 
 function setLanguage(lang){
-  localStorage.setItem('guide-lang', lang);
-  applyLanguage(lang);
+  const code = String(lang).toLowerCase().startsWith('en') ? 'en' : 'ko';
+
+  /* 주소에도 반영해 둔다. 이 주소로 새로고침하거나 그대로 열어도 같은 언어로 보이고,
+     openPage/goPage(clinicUrl)가 다음 페이지로 언어를 이어줄 수 있게 된다.
+     (localStorage 저장은 읽는 곳이 없어 제거했다 — 위 getPreferredLanguage 참고) */
+  const url = new URL(location.href);
+  if(code === 'en') url.searchParams.set(LANG_PARAM, 'en');
+  else              url.searchParams.delete(LANG_PARAM);
+  history.replaceState(null, '', url);
+
+  applyLanguage(code);
 }

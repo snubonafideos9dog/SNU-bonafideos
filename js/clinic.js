@@ -47,6 +47,9 @@ const CLINICS = {
 
 const DEFAULT_CLINIC_ID = 'snu';
 const CLINIC_PARAM      = 'c';
+/* 언어 파라미터. js/i18n.js 의 getPreferredLanguage·setLanguage 도 이 상수를 쓴다
+   (clinic.js 가 i18n.js 보다 먼저 로드되므로 여기 한 곳에만 둔다). */
+const LANG_PARAM        = 'lang';
 
 /* 지점마다 반드시 달라야 하는 자료(가격표·서류비용).
    이 목록의 파일은 지점 폴더에 없더라도 다른 지점 이미지로 대체하지 않고
@@ -82,9 +85,18 @@ function currentLangCode(){
 
 /* 내부 페이지 이동 시 지점 파라미터를 잃지 않도록 경로를 감싼다. */
 function clinicUrl(path){
+  const params = [];
+
   const id = getClinicId();
-  if(id === DEFAULT_CLINIC_ID) return path;
-  return path + (path.includes('?') ? '&' : '?') + CLINIC_PARAM + '=' + encodeURIComponent(id);
+  if(id !== DEFAULT_CLINIC_ID) params.push(CLINIC_PARAM + '=' + encodeURIComponent(id));
+
+  /* 언어도 지점과 같은 방식으로 주소에 실어 보낸다. 영어로 보던 환자가 안내 페이지를
+     열면 영어가 그대로 이어져야 한다. 기본값(한국어)은 파라미터를 붙이지 않으므로
+     QR·링크로 새로 들어온 환자는 종전대로 한국어로 시작한다. */
+  if(currentLangCode() === 'en') params.push(LANG_PARAM + '=en');
+
+  if(!params.length) return path;
+  return path + (path.includes('?') ? '&' : '?') + params.join('&');
 }
 
 /* 안내 페이지 새 탭으로 열기 (기존 window.open('x.html','_blank') 대체) */
